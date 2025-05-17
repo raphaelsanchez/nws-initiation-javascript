@@ -1,0 +1,121 @@
+/* @theme nws */
+@import "default";
+/* Variables de couleur */
+:root {
+    --clr: #1e1b4b;
+    --clr-accent: #4f46e5;
+    --bg: #eef2ff;
+    --bg-accent-light: #e0e7ff;
+}
+
+:root.invert {
+    --clr: #eef2ff;
+    --clr-accent: #a5b4fc;
+    --bg: #1e1b4b;
+}
+
+body {
+    background-color: var(--bg);
+}
+a {
+    color: var(--clr-accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+a::after {
+    content: " ↗";
+}
+/* ==========================
+   Heading Styles
+   ========================== */
+
+/* Titres de niveau 1 */
+h1,
+h2 {
+    color: var(--clr-accent);
+    line-height: 1.1;
+    text-wrap: balance;
+    font-weight: 900;
+}
+h2 {
+    font-size: 1.5rem;
+}
+
+:where(h1, h2, h3, h4) strong {
+    color: var(--clr-accent) !important;
+}
+
+ul,
+ol {
+    list-style: none;
+    padding-inline-start: 0;
+}
+
+:where(ul, ol) li::before {
+    margin-right: 0.5em;
+    margin-block: 0.5em;
+}
+
+ul li::before {
+    content: "→";
+    font-weight: bold;
+    color: var(--clr-accent);
+}
+
+ol li::before {
+    content: counter(list-item);
+    color: var(--bg);
+    background-color: var(--clr-accent);
+    width: 1.5em;
+    height: 1.5em;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.95em;
+    font-weight: bold;
+}
+
+ul ul {
+    padding-inline-start: 2rem;
+}
+
+ul ul li::before {
+    content: "•";
+    font-weight: bold;
+    color: var(--clr-accent);
+}
+
+strong {
+    font-weight: 600;
+    color: var(--clr-accent);
+}
+
+blockquote {
+    border-color: var(--bg-accent-light);
+    font-size: 1.15em;
+}
+
+/* ==========================
+   Layout Styles
+   ========================== */
+
+/* Sections de couverture */
+section.cover {
+    place-content: center;
+    text-align: center;
+    font-size: 3em;
+    background-color: var(--clr-accent);
+    color: #a5b4fc;
+
+    h1 {
+        color: white;
+    }
+}
+
+section.exercise {
+    place-content: center;
+    background-color: var(--bg-accent-light);
+    outline: 6px dashed #a5b4fc;
+    outline-offset: -20px;
+}
