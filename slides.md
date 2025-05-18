@@ -12,16 +12,56 @@ Dynamisez vos pages web
 
 ---
 
+<!-- _class: two-cols-list -->
+
+## Ce que vous nous allons voir
+
+1. Qu'est-ce que JavaScript ?
+2. Comment utiliser JavaScript ?
+3. Bonnes pratiques
+4. Les variables
+5. Les conditions
+6. Les boucles
+7. Les fonctions
+8. La manipulation du DOM
+9. Les écouteurs d'événements
+10. Conclusion & ressources
+
+---
+
 ## Avant propos : Mise en garde avec l'IA et le code
 
-L'IA est un outil puissant, mais il faut l'utiliser avec précaution.
+### L'IA est un outil puissant, mais il faut l'utiliser avec précaution.
 
-- L'IA peut générer du code, mais il faut le vérifier.
-- L'IA peut générer des erreurs, alors il faut les corriger.
-- L'IA peut générer des idées, mais sont elles de bonnes idées ?
+- L'IA peut générer du code, mais **il faut le vérifier**.
+- L'IA peut faire des erreurs, alors **il faut les corriger**.
+- L'IA peut avoir des idées, mais ... sont elles de bonnes idées ?
+- L'IA peut **se perdre** ... L'IA peut **vous perdre aussi**.
 
 > ⚠️ Commencer votre apprentissage avec l'IA n'est pas une bonne idée. Elle ne vous apprendra pas penser comme un développeur. Parce qu'un developpeur ne se contente pas d'écrire du code...
 > **Le développeur résout avant tout des problèmes et le code n'est que son outil.**
+
+---
+
+### Suggestions pour utiliser l'IA dans votre apprentissage
+
+- **Demander des explications** sur un concept que vous ne comprenez pas
+- **Faire réviser votre code** après l'avoir écrit pour obtenir des suggestions d'amélioration
+- **Explorer différentes approches** pour un même problème que vous maîtrisez déjà
+- **Obtenir des conseils sur les bonnes pratiques** de développement
+- **Générer des jeux de données** pour tester vos fonctions
+
+---
+
+### Exemple concret
+
+Au lieu de demander :
+
+> "Comment créer une fonction qui calcule la moyenne d'un tableau ?"
+
+Préférez d'abord essayer par vous-même, puis demandez :
+
+> "J'ai écrit cette fonction qui calcule la moyenne d'un tableau. Peux-tu suggérer des améliorations au niveau de la performance ou de la lisibilité ?"
 
 ---
 
@@ -67,7 +107,7 @@ Javascript peut être exécuté dans différents environnements :
 Même s'il contient le préfixe "Java", les langages Java et JavaScript n'ont rien en commun et ce nom a été choisi pour des raison marketing.
 
 - **Java** : langage compilé, orienté objet, utilisé pour les applications d'entreprise, les applications Android et les applications de bureau.
-- **JavaScript** (JS) : langage interprété, orienté prototype\*, utilisé pour le développement web et les applications mobiles.
+- **JavaScript** (dit **JS**) : langage interprété, orienté prototype\*, utilisé pour le développement web et les applications mobiles.
 
 > \*Contrairement aux langages orientés objet classiques qui utilisent des classes, JavaScript utilise des objets comme modèles pour créer d'autres objets.
 
@@ -90,20 +130,110 @@ Javascript est une implémentation du standard EcmaScript (ES).
 
 <!-- _class: cover -->
 
-C'est compris ?
-
-# Alors commençons !
+# Comment utiliser JavaScript dans le navigateur ?
 
 ---
 
-## Ce que vous nous allons voir
+## Intégration de JavaScript dans une page web
 
-1. Les variables
-2. Les conditions
-3. Les boucles
-4. Les fonctions
-5. La manipulation du DOM
-6. Les écouteurs d'événements
+Il existe plusieurs façons d'intégrer JavaScript dans une page web :
+
+- **Inline** : en utilisant l'attribut `onclick` ou `onload` dans une balise HTML.
+
+```html
+<button onclick="alert('Bonjour !')">Cliquez ici</button>
+```
+
+- **Dans une balise `<script>`** : en plaçant le code JavaScript directement dans une balise `<script>` dans le fichier HTML.
+
+```html
+<script>
+  alert("Bonjour !");
+</script>
+```
+
+---
+
+## Dans un fichier externe
+
+Il est également possible de placer le code JavaScript dans un fichier externe avec l'extension `.js` et de l'inclure dans le fichier HTML à l'aide de la balise `<script>`.
+
+```html
+<!DOCTYPE html>
+<head></head>
+<body>
+  ...
+  <!-- Inclusion du fichier JavaScript externe -->
+  <script src="script.js"></script>
+</body>
+```
+
+```javascript
+// script.js
+alert("Bonjour !");
+```
+
+---
+
+## Nous vous conseillons d'utiliser un fichier externe
+
+Cela présente plusieurs avantages :
+
+- **séparer** le code HTML et JavaScript pour une meilleure lisibilité.
+- **faciliter** la maintenance du code.
+- **réutiliser** du code JavaScript sur plusieurs pages ou projets.
+- ... et surtout, c'est la pratique recommandée par les standards du web.
+
+---
+
+<!-- _class: cover -->
+
+# Bonnes pratiques
+
+---
+
+## Convention de nommage
+
+- Utiliser des **noms explicites et significatifs**.
+  > `let nombreUtilisateurs` plutot que `let nbU`.
+- Utiliser le **camelCase** pour les variables et les fonctions.
+  > `let nombreUtilisateurs` et `function calculerMoyenne()`.
+- Privilégier l'anglais qui est la langue de la programmation
+  > `let userCount` et `function calculateAverage()`.
+
+---
+
+## Commentaires et documentation
+
+- Utiliser des commentaires pour expliquer le code complexe.
+- Utiliser des outils de documentation comme JSDoc pour générer la documentation automatiquement :
+
+```javascript
+/**
+ * Calculate average age.
+ *
+ * @param {Array} students - The array of student objects
+ * @return {Number} The average age of the students
+ */
+function calculateAverageAge(students) {...}
+```
+
+> ⚠️ Éviter les commentaires inutiles et redondants.
+
+---
+
+## Structure de code
+
+- Utiliser une indentation cohérente pour améliorer la lisibilité.
+- Utiliser des espaces pour séparer les opérateurs et les parenthèses.
+- Utiliser des lignes de séparation pour séparer les sections de code.
+  > Et bien évidemment **Git** pour suivre les modifications du code.
+
+---
+
+<!-- _class: separator -->
+
+# C'est bon, ? Et bien commençons les choses sérieuses ... 😊
 
 ---
 
@@ -136,10 +266,16 @@ Il existe trois façons de déclarer une variable en JavaScript :
 
 La portée d'une variable détermine où elle peut être utilisée dans le code.
 
-- **Portée globale** : La variable est accessible dans tout le code.
-- **Portée locale** : La variable est accessible uniquement dans la fonction ou le bloc où elle a été déclarée.
+- **Portée globale** :
+  La variable est accessible dans tout le code.
+- **Portée locale** :
+  La variable est accessible uniquement dans la fonction ou le bloc où elle a été déclarée.
+
+![bg right:45%](assets/scope.png)
 
 ---
+
+### Exemple par le code
 
 ```javascript
 const nom = "John"; // portée globale
@@ -172,9 +308,9 @@ JavaScript est un langage faiblement typé, ce qui signifie que vous n'avez pas 
 
 ---
 
-### On peut aussi utiliser le mot clé **typeof** pour connaître le type d'une variable.
+### Quel est le type de la variable `nom` ?
 
-Essayons de voir le type de la variable `nom` :
+On peut aussi utiliser le mot clé **typeof** pour connaître le type d'une variable.
 
 ```javascript
 console.log(typeof nom); // "string"
@@ -218,7 +354,7 @@ console.log("Bonjour, je m'appelle " + nom + "et j'ai " + age + " ans.");
 
 # Les conditions
 
-if, else, switch
+if / if else / else
 
 ---
 
@@ -251,6 +387,40 @@ if (condition) {
 
 ---
 
+on peut aussi ajouter plusieurs conditions :
+
+```javascript
+if (condition1) {
+  // bloc de code à exécuter si la condition1 est vraie
+} else if (condition2) {
+  // bloc de code à exécuter si la condition2 est vraie
+} else if (condition3) {
+  // bloc de code à exécuter si la condition3 est vraie
+} else {
+  // bloc de code à exécuter si aucune des conditions n'est vraie
+}
+```
+
+---
+
+On peut aussi imbriquer des conditions :
+
+```javascript
+if (condition1) {
+  if (condition2) {
+    // bloc de code à exécuter si condition1 et condition2 sont vraies
+  } else {
+    // bloc de code à exécuter si condition1 est vraie et condition2 est fausse
+  }
+} else {
+  // bloc de code à exécuter si condition1 est fausse
+}
+```
+
+> ⚠️ Attention à ne pas trop imbriquer les conditions, cela peut rendre le code difficile à lire et à comprendre.
+
+---
+
 ### Exemple d'une condition liée à l'âge
 
 ```javascript
@@ -273,14 +443,16 @@ if (age >= 18) {
 
 ---
 
+<!-- _class: two-cols-list -->
+
 ## Les opérateurs de comparaison
 
 Les opérateurs de comparaison permettent de comparer deux valeurs et de retourner un booléen (true ou false).
 
 - `==` : égal à
-- `===` : strictement égal à (type et valeur)
+- `===` : strictement égal à
 - `!=` : différent de
-- `!==` : strictement différent de (type et valeur)
+- `!==` : strictement différent de
 - `>` : supérieur à
 - `<` : inférieur à
 - `>=` : supérieur ou égal à
@@ -295,28 +467,58 @@ Les opérateurs logiques permettent de combiner plusieurs conditions.
 - `&&` : ET logique
 - `||` : OU logique
 - `!` : NON logique
-- `?` : opérateur ternaire (condition ? valeurSiVrai : valeurSiFaux)
-- `??` : opérateur de coalescence nulle (valeur1 ?? valeur2)
-- `??=` : opérateur d'affectation de coalescence nulle (valeur1 ??= valeur2)
 
 ---
 
-## Exemples d'opérateurs logiques
+<!-- _class: two-cols-list -->
 
 Les opérateurs logiques sont utilisés pour combiner plusieurs conditions. Ils peuvent renvoyer un booléen (true ou false) en fonction des conditions.
 
-```javascript
-// && (ET)
-true && true; // true
-true && false; // false
-false && true; // false
-false && false; // false
+- les retours pour **&&**
+  - `true && true; // true`
+  - `true && false; // false`
+  - `false && true; // false`
+  - `false && false; // false`
+- les retours pour **||**
+  - `true || true; // true`
+  - `true || false; // true`
+  - `false || true; // true`
+  - `false || false; // false`
 
-// || (OU)
-true || true; // true
-true || false; // true
-false || true; // true
-false || false; // false
+---
+
+## L'opérateur ternaire
+
+L'opérateur ternaire permet d'écrire une condition sur une seule ligne.  
+Syntaxe : `condition ? valeurSiVrai : valeurSiFaux`
+
+Exemple :
+
+```javascript
+let age = 18;
+
+let message = age >= 18 ? "Vous êtes majeur." : "Vous êtes mineur.";
+```
+
+---
+
+## Les opérateurs de coalescence nulle
+
+Ces opérateurs permettent de gérer les valeurs nulles ou indéfinies.
+
+- `??` : retourne la première valeur qui n'est ni `null` ni `undefined`
+- `??=` : assigne une valeur uniquement si la variable est `null` ou `undefined`
+
+Exemples :
+
+```javascript
+let nom = null;
+
+let nomAffiche = nom ?? "Anonyme"; // "Anonyme"
+
+let prenom;
+prenom ??= "Invité";
+console.log(prenom); // "Invité"
 ```
 
 ---
@@ -355,13 +557,57 @@ let age = 18;
 let pays = "France";
 
 // Vérification du droit de conduire
-if (age >= 18 && pays === "France") {
+if ((pays === "France" && age >= 18) || (pays === "Canada" && age >= 16)) {
   console.log("Vous avez le droit de conduire.");
 } else {
   console.log("Vous n'avez pas le droit de conduire.");
 }
+```
 
-console.log(droitDeConduire); // "Vous avez le droit de conduire."
+---
+
+## Les tableaux
+
+Un `Array` est une structure de données qui permet de **stocker plusieurs valeurs dans une seule variable**.
+Il est déclaré avec des crochets `[]` et les valeurs sont séparées par des virgules.
+
+```javascript
+let fruits = ["Pomme", "Banane", "Orange"];
+```
+
+On peut accéder à un élément d'un tableau en utilisant son index (position) :
+
+```javascript
+console.log(fruits[0]); // "Pomme"
+```
+
+---
+
+## Les objets
+
+Un `Object` est une structure de données qui permet de **stocker des paires clé-valeur**.
+Il est déclaré avec des accolades `{}` et les paires clé-valeur sont séparées par des virgules.
+
+```javascript
+let personne = {
+  nom: "John",
+  age: 25,
+  estActif: true,
+};
+```
+
+---
+
+On peut accéder à une valeur d'un objet en utilisant sa clé :
+
+```javascript
+console.log(personne.nom); // "John"
+```
+
+ou dans le cas d'une clé dynamique :
+
+```javascript
+console.log(personne["age"]); // 25
 ```
 
 ---
@@ -383,17 +629,17 @@ Elle est utilisée pour itérer sur des collections de données ou pour exécute
 
 ## Les types de boucles
 
-Il existe plusieurs types de boucles en JavaScript :
+Il existe plusieurs types de boucles en JavaScript.
 
-- **La boucle `for`** : elle s'utilise lorsque l'on connaît à l'avance le nombre d'itérations.
-- **La boucle `while`** : elle s'utilise lorsque l'on ne connaît pas à l'avance le nombre d'itérations.
-- **La boucle `do...while`** : elle est similaire à la boucle `while`, mais elle garantit que le bloc de code sera exécuté au moins une fois.
+Elles sont utilisées pour **itérer sur des collections de données** ou pour **exécuter un code un certain nombre de fois** et chaque type de boucle a ses propres caractéristiques et utilisations.
+
+🔗 [Consultez le MDN](https://developer.mozilla.org/fr/docs/Web/JavaScript/Guide/Loops_and_iteration)
 
 ---
 
-## Exemples de boucles
-
 ### Boucle `for`
+
+La boucle `for` est utilisée pour itérer sur une séquence de valeurs.
 
 ```javascript
 for (let i = 0; i < 5; i++) {
@@ -404,6 +650,8 @@ for (let i = 0; i < 5; i++) {
 ---
 
 ### Boucle `while`
+
+La boucle `while` exécute un bloc de code tant qu'une condition est vraie.
 
 ```javascript
 let i = 0;
@@ -417,6 +665,8 @@ while (i < 5) {
 
 ### Boucle `do...while`
 
+La boucle `do...while` garantit que le bloc de code sera exécuté au moins une fois.
+
 ```javascript
 let i = 0;
 do {
@@ -427,12 +677,13 @@ do {
 
 ---
 
-### La boucle `for...of`
+### La boucle `for...of` pour les itérables (tableaux, strings)
 
 La boucle `for...of` permet d'itérer sur les éléments d'un tableau ou d'une chaîne de caractères.
 
 ```javascript
 let fruits = ["Pomme", "Banane", "Orange"];
+
 for (let fruit of fruits) {
   console.log(fruit);
 }
@@ -456,16 +707,25 @@ for (let propriete in personne) {
 
 ---
 
-### La boucle `forEach`
+## ...et des méthodes 🤯
+
+WTF ?!
+
+---
+
+### La méthode `forEach`
 
 La méthode `forEach` permet d'itérer sur les éléments d'un tableau.
 
 ```javascript
 let fruits = ["Pomme", "Banane", "Orange"];
+
 fruits.forEach(function (fruit) {
   console.log(fruit);
 });
 ```
+
+> ⚠️ La méthode `forEach` est une méthode d'itération pour les tableaux et ne peut pas être utilisée sur des objets.
 
 ---
 
@@ -482,17 +742,19 @@ let carrés = nombres.map(function (nombre) {
 console.log(carrés); // [1, 4, 9, 16, 25]
 ```
 
+> 💡 Elle ne modifie pas le tableau d'origine.
+
 ---
 
-## Il existe aussi d'autres méthodes pour itérer sur les tableaux :
+## ...et bien d'autres méthodes 😵‍💫
 
 - `filter` : permet de filtrer les éléments d'un tableau en fonction d'une condition.
-- `reduce` : permet de réduire un tableau à une seule valeur en appliquant une fonction à chaque élément.
 - `some` : permet de vérifier si au moins un élément d'un tableau satisfait une condition.
 - `every` : permet de vérifier si tous les éléments d'un tableau satisfont une condition.
 - `find` : permet de trouver le premier élément d'un tableau qui satisfait une condition.
 - `includes` : permet de vérifier si un tableau contient un élément spécifique.
 - ...
+  🔗 [Consultez le MDN](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array) pour les méthodes des tableaux
 
 ---
 
@@ -518,11 +780,12 @@ Elle est utilisée pour encapsuler une logique réutilisable et éviter la rép�
 
 Il existe plusieurs façons de déclarer une fonction en JavaScript :
 
-- **Fonction déclarée** : `function nomDeLaFonction(paramètres) { ... }`
-- **Fonction anonyme** : `const nomDeLaFonction = function(paramètres) { ... }`
-- **Fonction fléchée** : `const nomDeLaFonction = (paramètres) => { ... }`
-- **Fonction de rappel (callback)** : `function nomDeLaFonction(paramètres, callback) { ... callback(valeur); }`
-- Et d'autres... Consultez le [MDN](https://developer.mozilla.org/fr/docs/Web/JavaScript/Guide/Fonctions) pour plus de détails. (soyez curieux 😉)
+- **Fonction déclarée** : `function nomDeLaFonction(params) { ... }`
+- **Fonction anonyme** : `const nomDeLaFonction = function(params) { ... }`
+- **Fonction fléchée** : `const nomDeLaFonction = (params) => { ... }`
+- **Fonction de rappel (callback)** : `function nomDeLaFonction(params, cb) { ... cb(valeur); }`
+- ...
+  🔗 [Consultez le MDN](https://developer.mozilla.org/fr/docs/Web/JavaScript/Guide/Fonctions) pour plus de détails. _(soyez un peu curieux 😉)_
 
 ---
 
@@ -606,7 +869,7 @@ querySelector, createElement, textContent, ...
 
 ## Qu'est-ce que le DOM ?
 
-Le DOM (Document Object Model) est une représentation en mémoire de la structure d'un document HTML ou XML. Nous pouvons le manipuler avec JavaScript pour modifier le contenu, la structure et le style d'une page web.
+Le DOM (Document Object Model) est une représentation en mémoire de la structure d'un document HTML. Nous pouvons le manipuler avec JavaScript pour modifier le contenu, la structure et le style d'une page web.
 
 ---
 
@@ -749,18 +1012,15 @@ bouton.addEventListener("click", function () {
 Pour supprimer un écouteur d'événement, on utilise la méthode `removeEventListener()`.
 
 ```javascript
-// Sélectionner un élément du DOM
-let bouton = document.querySelector("button");
-
 // Définir la fonction de l'écouteur d'événement
 function afficherAlerte() {
   alert("Bouton cliqué !");
 }
 
-// Ajouter un écouteur d'événement
+// Ajouter un écouteur d'événement sur le bouton précédent créé
 bouton.addEventListener("click", afficherAlerte);
 
-// Supprimer l'écouteur d'événement
+// Supprimer l'écouteur d'événement (après l'avoir ajouté)
 bouton.removeEventListener("click", afficherAlerte);
 ```
 
@@ -782,7 +1042,9 @@ Voici quelques événements courants que vous pouvez utiliser :
 - `keydown` : lorsque l'utilisateur appuie sur une touche du clavier.
 - `submit` : lorsque l'utilisateur soumet un formulaire.
 - `input` : lorsque l'utilisateur saisit du texte dans un champ de formulaire.
-  > Consultez la [MDN](https://developer.mozilla.org/fr/docs/Web/Events) pour plus de détails.
+- ...
+
+🔗 [Consultez le MDN](https://developer.mozilla.org/fr/docs/Web/Events) pour plus de détails sur les écouteurs d'événement.
 
 ---
 
@@ -793,6 +1055,7 @@ Voici quelques événements courants que vous pouvez utiliser :
 let bouton = document.querySelector("button");
 let titre = document.querySelector("h1");
 let compteur = 0;
+
 // Ajouter un écouteur d'événement
 bouton.addEventListener("click", function () {
   compteur++;
@@ -809,6 +1072,11 @@ bouton.addEventListener("click", function () {
 - Créez une page web avec un bouton et un compteur.
 - Lorsque l'utilisateur clique sur le bouton, le compteur doit s'incrémenter de 1 et afficher le nombre de clics dans un élément `h1`.
 - Lorsque le compteur atteint 10, le bouton doit être désactivé et un message doit s'afficher pour indiquer que le maximum de clics a été atteint.
+
+```javascript
+// Désactiver le bouton
+bouton.disabled = true;
+```
 
 ---
 

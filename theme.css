@@ -2,7 +2,7 @@
 @import "default";
 /* Variables de couleur */
 :root {
-    --clr: #1e1b4b;
+    --clr: #@;
     --clr-accent: #4f46e5;
     --bg: #eef2ff;
     --bg-accent-light: #e0e7ff;
@@ -16,6 +16,7 @@
 
 body {
     background-color: var(--bg);
+    color: var(--clr);
 }
 a {
     color: var(--clr-accent);
@@ -40,9 +41,24 @@ h2 {
 h2 {
     font-size: 1.5rem;
 }
+h3 {
+    font-size: 1.25rem;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    margin-bottom: 0.5em;
+}
 
 :where(h1, h2, h3, h4) strong {
     color: var(--clr-accent) !important;
+}
+:where(h1, h2, h3, h4) code {
+    color: var(--clr-accent);
+    background-color: var(--bg-accent-light);
+    padding: 0.5em;
 }
 
 ul,
@@ -86,14 +102,28 @@ ul ul li::before {
     color: var(--clr-accent);
 }
 
+section.two-cols-list > ul,
+section.two-cols-list > ol {
+    columns: 2;
+    column-gap: 2rem;
+}
+
 strong {
     font-weight: 600;
     color: var(--clr-accent);
 }
 
 blockquote {
+    margin-block: 1rem;
     border-color: var(--bg-accent-light);
-    font-size: 1.15em;
+}
+
+code,
+pre {
+    margin-block: 1rem;
+    border-color: var(--clr-accent);
+    background-color: var(--bg);
+    font-family: "Courier New", Courier, monospace;
 }
 
 /* ==========================
@@ -111,6 +141,10 @@ section.cover {
     h1 {
         color: white;
     }
+}
+
+section.separator {
+    text-align: center;
 }
 
 section.exercise {
