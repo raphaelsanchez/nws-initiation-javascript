@@ -231,6 +231,23 @@ function calculateAverageAge(students) {...}
 
 ---
 
+<!-- _class: exercise -->
+
+# Exercice : Ajoutez votre premier code JavaScript
+
+1. Créez un fichier HTML
+2. Créez un fichier JavaScript
+3. Incluez le fichier JavaScript dans le fichier HTML
+4. Dans le fichier JavaScript, écrivez un console.log qui affiche "Bonjour, monde !"
+
+```javascript
+console.log("Bonjour, monde !");
+```
+
+5. Ouvrez le fichier HTML dans votre navigateur et ouvrez la console (F12)
+
+---
+
 <!-- _class: separator -->
 
 # C'est bon, ? Et bien commençons les choses sérieuses ... 😊
@@ -707,9 +724,11 @@ for (let propriete in personne) {
 
 ---
 
-## ...et des méthodes 🤯
+<!-- _class: separator -->
 
-WTF ?!
+## ...et des méthodes ...
+
+## WTF ?! 🤯
 
 ---
 
@@ -755,6 +774,34 @@ console.log(carrés); // [1, 4, 9, 16, 25]
 - `includes` : permet de vérifier si un tableau contient un élément spécifique.
 - ...
   🔗 [Consultez le MDN](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array) pour les méthodes des tableaux
+
+---
+
+<!-- _class: exercise -->
+
+## Exercice
+
+1. Créez un tableau de nombres
+2. Créez une variable `somme` initialisée à 0
+3. Bouclez sur le tableau et ajouter chaque nombre à la variable `somme`
+4. Affichez la somme dans la console
+
+---
+
+<!-- _class: exercise -->
+
+## Corrigé
+
+```javascript
+let nombres = [1, 2, 3, 4, 5];
+let somme = 0;
+
+for (let i = 0; i < nombres.length; i++) {
+  somme += nombres[i];
+}
+
+console.log(somme); // 15
+```
 
 ---
 
@@ -1069,13 +1116,29 @@ bouton.addEventListener("click", function () {
 
 ## Exercice
 
-- Créez une page web avec un bouton et un compteur.
-- Lorsque l'utilisateur clique sur le bouton, le compteur doit s'incrémenter de 1 et afficher le nombre de clics dans un élément `h1`.
-- Lorsque le compteur atteint 10, le bouton doit être désactivé et un message doit s'afficher pour indiquer que le maximum de clics a été atteint.
+1. Créez une page web avec un titre et un bouton.
+2. Lorsque l'utilisateur clique sur le bouton, le titre doit changer de couleur et de texte.
+3. Utilisez la méthode `querySelector` pour sélectionner le titre et le bouton.
+4. Utilisez la méthode `textContent` pour modifier le texte du titre.
+5. Utilisez la méthode `style` pour modifier la couleur du titre.
+
+---
+
+<!-- _class: exercise -->
+
+## Corrigé
 
 ```javascript
-// Désactiver le bouton
-bouton.disabled = true;
+// Sélectionner le titre et le bouton
+let titre = document.querySelector("h1");
+let bouton = document.querySelector("button");
+
+// Ajouter un écouteur d'événement au bouton
+bouton.addEventListener("click", function () {
+  // Modifier le texte et la couleur du titre
+  titre.textContent = "Titre modifié";
+  titre.style.color = "red";
+});
 ```
 
 ---
@@ -1086,7 +1149,21 @@ bouton.disabled = true;
 
 ---
 
-> N'oubliez pas que l'apprentissage du JavaScript, comme tout langage, est un processus continu - le langage évolue constamment avec de nouvelles fonctionnalités et pratiques. Continuez à pratiquer et à explorer pour approfondir vos compétences.
+- JavaScript est un langage de programmation essentiel pour le développement web.
+- Il permet de rendre les pages web interactives et dynamiques.
+- Il est important de suivre les bonnes pratiques de développement pour écrire du code lisible et maintenable.
+- La manipulation du DOM et les écouteurs d'événements sont des concepts clés pour créer des applications web interactives.
+
+---
+
+> N'oubliez pas que l'apprentissage du JavaScript, comme tout langage, est un processus continu qui se fait par la pratique.
+> Le langage évolue constamment avec de nouvelles fonctionnalités et pratiques alors, continuez à **pratiquer et explorer** pour approfondir vos compétences.
+
+---
+
+<!-- _class: cover -->
+
+# Merci de votre attention 🫶 !
 
 ---
 
