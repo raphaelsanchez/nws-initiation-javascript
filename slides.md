@@ -238,10 +238,10 @@ function calculateAverageAge(students) {...}
 1. Créez un fichier HTML
 2. Créez un fichier JavaScript
 3. Incluez le fichier JavaScript dans le fichier HTML
-4. Dans le fichier JavaScript, écrivez un console.log qui affiche "Bonjour, monde !"
+4. Dans le fichier JavaScript, écrivez un console.log qui affiche "Hello World!"
 
 ```javascript
-console.log("Bonjour, monde !");
+console.log("Hello World!");
 ```
 
 5. Ouvrez le fichier HTML dans votre navigateur et ouvrez la console (F12)
@@ -273,9 +273,9 @@ Elle est définie par un nom et peut contenir différents types de données.
 
 Il existe trois façons de déclarer une variable en JavaScript :
 
-- `var` : portée fonctionnelle (plus utilisé, déconseillé)
-- `let` : portée de bloc (recommandé)
-- `const` : portée de bloc, valeur constante (recommandé)
+- `var` : portée globale (plus utilisé et fortement déconseillé)
+- `let` : portée de bloc
+- `const` : portée de bloc, valeur constante
 
 ---
 
@@ -296,15 +296,15 @@ La portée d'une variable détermine où elle peut être utilisée dans le code.
 
 ```javascript
 const nom = "John"; // portée globale
-console.log(nom); // accessible
+console.log(nom); // affiche "John"
 
 function afficherNom() {
   const nomLocal = "Doe"; // portée locale
-  console.log(nom); // accessible
-  console.log(nomLocal); // accessible
+  console.log(nom); // affiche "John"
+  console.log(nomLocal); // affiche "Doe"
 }
 
-afficherNom();
+afficherNom(); // Affiche "John" et "Doe"
 console.log(nomLocal); // erreur : nomLocal n'est pas défini
 ```
 
@@ -365,13 +365,15 @@ let addition = function (a, b) {
 console.log("Bonjour, je m'appelle " + nom + "et j'ai " + age + " ans.");
 ```
 
+> 👉 Notez qu'ici les `+` sont utilisés pour concaténer les chaînes de caractères et non faire une opération.
+
 ---
 
 <!-- _class: cover -->
 
 # Les conditions
 
-if / if else / else
+if / else if / else
 
 ---
 
@@ -382,7 +384,7 @@ Elle est utilisée pour prendre des décisions dans le code.
 
 ---
 
-## Structure d'une condition
+### Structure d'une condition
 
 La structure d'une condition est la suivante :
 
@@ -540,18 +542,6 @@ console.log(prenom); // "Invité"
 
 ---
 
-## L'opérateur ternaire
-
-L'opérateur ternaire est une façon concise d'écrire une condition.
-C'est ce que vous retrouverez souvent dans les codebases modernes.
-
-```javascript
-let age = 18;
-let message = age >= 18 ? "Vous êtes majeur." : "Vous êtes mineur.";
-```
-
----
-
 <!-- _class: exercise -->
 
 ## Exercice
@@ -672,6 +662,7 @@ La boucle `while` exécute un bloc de code tant qu'une condition est vraie.
 
 ```javascript
 let i = 0;
+
 while (i < 5) {
   console.log(i);
   i++;
@@ -686,6 +677,7 @@ La boucle `do...while` garantit que le bloc de code sera exécuté au moins une 
 
 ```javascript
 let i = 0;
+
 do {
   console.log(i);
   i++;
@@ -717,6 +709,7 @@ let personne = {
   nom: "John",
   age: 25,
 };
+
 for (let propriete in personne) {
   console.log(propriete + ": " + personne[propriete]);
 }
@@ -894,7 +887,9 @@ function verifierDroitDeConduire(age, pays) {
 
   if (pays === "France" && age >= 18) {
     droitDeConduire = true;
-  } else if (pays === "Canada" && age >= 16) {
+  }
+
+  if (pays === "Canada" && age >= 16) {
     droitDeConduire = true;
   }
 
@@ -957,7 +952,7 @@ document.body.appendChild(nouveauParagraphe);
 let titre = document.querySelector("h1");
 
 // Modifier le texte de l'élément
-titre.textContent = "Bonjour, monde !";
+titre.textContent = "Hello World!";
 ```
 
 ---
@@ -1000,7 +995,7 @@ C'est souvent utilisé pour appliquer des styles CSS à un élément en réponse
 ---
 
 ```html
-<h1>Bonjour, monde !</h1>
+<h1>Hello World!</h1>
 ```
 
 on peut ajouter une classe à l'élément `h1` en utilisant la méthode `classList.add()` :
@@ -1016,7 +1011,7 @@ titre.classList.add("ma-classe");
 ce qui va ajouter la classe `ma-classe` à l'élément `h1`.
 
 ```html
-<h1 class="ma-classe">Bonjour, monde !</h1>
+<h1 class="ma-classe">Hello World!</h1>
 ```
 
 ---
